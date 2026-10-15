@@ -1,0 +1,356 @@
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: var(--calcite-color-background, #1f1f1f);
+  font-family: var(--calcite-font-family, "Avenir Next", system-ui, sans-serif);
+}
+
+arcgis-scene {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Chart tokens (dark UI only — the app runs in calcite-mode-dark). Categorical slots from the
+   validated dataviz reference palette, dark steps. */
+:root {
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --viz-surface: var(--calcite-color-foreground-1, #2b2b2b);
+  --viz-text: #ffffff;
+  --viz-text-2: #c3c2b7;
+  --viz-muted: #9a988f;
+  --viz-grid: #3d3d3a;
+  --viz-axis: #55554f;
+}
+
+.header-status {
+  display: flex;
+  align-items: center;
+  padding-inline: 12px;
+}
+.header-status calcite-chip {
+  --calcite-chip-icon-color: #0ca30c;
+}
+
+.panel-body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 12px 14px 24px;
+  color: var(--calcite-color-text-1);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.panel-body section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.panel-body h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--calcite-color-text-1);
+}
+.panel-body p {
+  margin: 0;
+}
+.muted {
+  color: var(--calcite-color-text-3);
+}
+.small {
+  font-size: 12px;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Stat tiles */
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: var(--calcite-color-foreground-2);
+}
+.stat-label {
+  font-size: 11px;
+  color: var(--calcite-color-text-3);
+}
+.stat-value {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--calcite-color-text-1);
+}
+.stat-sub {
+  font-size: 11px;
+  color: var(--calcite-color-text-2);
+}
+
+.hero {
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--calcite-color-foreground-2);
+}
+.hero-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-value {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.factor-list {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.factor-list li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 8px;
+}
+.factor-list li .small {
+  grid-column: 1 / -1;
+}
+
+.list-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--calcite-color-border-3);
+}
+.list-row > div {
+  display: flex;
+  flex-direction: column;
+}
+
+table.forecast,
+table.latest-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+table.forecast th,
+table.forecast td,
+table.latest-table th,
+table.latest-table td {
+  padding: 4px 6px;
+  text-align: right;
+  border-bottom: 1px solid var(--calcite-color-border-3);
+  font-weight: 400;
+}
+table.forecast th:first-child,
+table.forecast td:first-child,
+table.latest-table th {
+  text-align: left;
+}
+table.forecast thead th {
+  color: var(--calcite-color-text-3);
+  font-size: 11px;
+}
+table.latest-table caption {
+  text-align: left;
+  padding-bottom: 4px;
+}
+
+/* Sentinel-2 */
+.scene-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--calcite-color-foreground-2);
+}
+.scene-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.scene-card-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.class-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.class-legend-row {
+  display: grid;
+  grid-template-columns: 18px 1fr auto;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+}
+.class-legend-row i {
+  width: 18px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.metric-chips calcite-chip-group {
+  flex-wrap: wrap;
+}
+
+.prose ul {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.prose a {
+  color: var(--calcite-color-brand);
+}
+.sources li {
+  display: flex;
+  flex-direction: column;
+}
+.prose code {
+  font-size: 11px;
+  background: var(--calcite-color-foreground-3);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+/* Charts */
+.viz {
+  position: relative;
+  width: 100%;
+  font-variant-numeric: tabular-nums;
+}
+.viz svg {
+  display: block;
+  touch-action: none;
+}
+.viz-grid {
+  stroke: var(--viz-grid);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+.viz-axis {
+  stroke: var(--viz-axis);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+.viz-ref {
+  stroke: var(--viz-muted);
+  stroke-width: 1;
+}
+.viz-crosshair {
+  stroke: var(--viz-text-2);
+  stroke-width: 1;
+}
+.viz-tick {
+  fill: var(--viz-muted);
+  font-size: 10px;
+}
+.viz-value {
+  fill: var(--viz-text-2);
+  font-size: 10px;
+  font-weight: 600;
+}
+.viz-ring {
+  stroke: var(--viz-surface);
+  stroke-width: 2;
+}
+.viz-selected {
+  stroke: var(--viz-text);
+}
+.viz-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin-bottom: 4px;
+  font-size: 11px;
+  color: var(--viz-text-2);
+}
+.viz-legend i {
+  display: inline-block;
+  width: 12px;
+  height: 2px;
+  margin-right: 5px;
+  vertical-align: middle;
+  border-radius: 1px;
+}
+.viz-tooltip {
+  position: absolute;
+  z-index: 2;
+  min-width: 150px;
+  max-width: 200px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  font-size: 11px;
+  color: var(--viz-text-2);
+}
+.viz-tt-head {
+  color: var(--viz-muted);
+  margin-bottom: 3px;
+}
+.viz-tt-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.viz-tt-row i {
+  display: inline-block;
+  width: 10px;
+  height: 2px;
+  flex: none;
+  align-self: center;
+}
+.viz-tt-row strong {
+  color: var(--viz-text);
+  font-weight: 600;
+}
+.viz-tt-foot {
+  margin-top: 3px;
+  color: var(--viz-muted);
+}
+.viz-empty {
+  padding: 24px 0;
+  text-align: center;
+  color: var(--viz-muted);
+}
+.is-refetching {
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+table.latest-table td {
+  white-space: nowrap;
+}
