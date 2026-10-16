@@ -8,6 +8,7 @@ import "@arcgis/map-components/components/arcgis-home";
 import "@arcgis/map-components/components/arcgis-basemap-toggle";
 import "@arcgis/map-components/components/arcgis-layer-list";
 import "@arcgis/map-components/components/arcgis-legend";
+import "@arcgis/map-components/components/arcgis-expand";
 import "@esri/calcite-components/components/calcite-shell";
 import "@esri/calcite-components/components/calcite-shell-panel";
 import "@esri/calcite-components/components/calcite-panel";
@@ -30,6 +31,7 @@ import "@esri/calcite-components/components/calcite-switch";
 import "@esri/calcite-components/components/calcite-label";
 import "@esri/calcite-components/components/calcite-loader";
 import "@esri/calcite-components/components/calcite-meter";
+import "@esri/calcite-components/components/calcite-slider";
 
 import { HOME_CAMERA, useLoughScene } from "./hooks/useLoughScene.js";
 import { useSentinel } from "./hooks/useSentinel.js";
@@ -188,6 +190,10 @@ export function App() {
         <arcgis-navigation-toggle slot="top-right" />
         <arcgis-compass slot="top-right" />
         <arcgis-home slot="top-right" />
+        {/* Legend sits in the view's own UI, under the navigation tools, so it stays visible whichever panel is open. */}
+        <arcgis-expand slot="top-right" expanded mode="floating" expand-icon="legend" expand-tooltip="Legend" placement="bottom-end">
+          <arcgis-legend className="scene-legend" respect-layer-visibility />
+        </arcgis-expand>
         <arcgis-basemap-toggle slot="bottom-right" next-basemap="topo-3d" />
       </arcgis-scene>
     </calcite-shell>

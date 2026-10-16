@@ -354,3 +354,24 @@ table.latest-table caption {
 table.latest-table td {
   white-space: nowrap;
 }
+
+/* Legend in the scene's top-right UI stack: capped so it never runs off the bottom of the view. */
+arcgis-legend.scene-legend {
+  display: block;
+  width: 260px;
+  max-height: calc(100vh - 420px);
+  min-height: 120px;
+  overflow-y: auto;
+}
+
+.opacity-control {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 4px 12px 8px;
+}
+.opacity-label {
+  font-size: 11px;
+  color: var(--calcite-color-text-3);
+  font-variant-numeric: tabular-nums;
+}

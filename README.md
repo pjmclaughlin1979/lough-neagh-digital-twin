@@ -21,7 +21,7 @@ No API keys or sign-in are needed. Every source is public and anonymous.
 | **Today** | Bloom-conditions index (in-lough water temperature + phycocyanin + 3-day wind and sunshine forecast), live sonde readings, 7-day outlook, latest clear satellite view, BGA reports this year, WFD 2018 status of Lough Neagh and Lough Beg |
 | **Sentinel-2 algae** | Chlorophyll-a (NDCI), surface-scum and true-colour overlays for any scene since 2018; the bloom extent of every scene on one timeline (click a dot to load it); summer bloom extent by year; peak-bloom composites per season |
 | **Probes** | DAERA's 9 probes: 3 telemetered in-lough sondes (Toome, Washing Bay, Rea's Wood), each with phycocyanin, temperature, DO, turbidity and conductivity, plus 6 river probes on the main inflows. Daily mean and range charts over 30 d to the full record, and a three-sonde comparison |
-| **Layers** | The SDK's Layer List and Legend: live monitoring, water quality & WFD status, catchment pressures (WwTW, algal-bloom pollution incidents), protected sites, catchment |
+| **Layers** | The SDK's Layer List with a transparency slider per layer (the Legend sits in the scene, below the navigation tools): live monitoring, water quality & WFD status, catchment pressures (WwTW, algal-bloom pollution incidents), protected sites, catchment |
 
 ## Data sources
 
